@@ -93,7 +93,7 @@ public class Register extends AppCompatActivity {
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(Register.this, Login.class));
             }
         });
 
