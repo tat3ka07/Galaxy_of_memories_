@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:id="@+id/amazonImage"
-            android:src="@drawable/amazon"
+            android:src="@drawable/notes"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
