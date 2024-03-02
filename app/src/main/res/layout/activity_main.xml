@@ -11,17 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/constraintLayout"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/_20sdp">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:id="@+id/amazonName"
             android:text="Galaxy"
-            android:textSize="40sp"
+            android:textSize="@dimen/_32sdp"
             android:textColor="@color/lavender"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_40sdp"
             android:textStyle="bold|italic"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,101 +32,102 @@
             android:layout_height="wrap_content"
             android:id="@+id/amazonDesc"
             android:text="of memories"
-            android:textSize="18sp"
-            android:layout_marginStart="18dp"
+            android:textSize="@dimen/_18sdp"
+            android:layout_marginStart="@dimen/_18sdp"
             android:textColor="@color/lavender"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/amazonName"
             app:layout_constraintEnd_toStartOf="@+id/amazonImage"/>
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_160sdp"
             android:id="@+id/amazonImage"
             android:src="@drawable/notes"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_6sdp"
             app:layout_constraintStart_toEndOf="@id/amazonName"/>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="175dp"
             android:id="@+id/row1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_150sdp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/amazonImage">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
                 android:id="@+id/clothingCard"
-                android:layout_margin="10dp"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/birthdayBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/clothingName"
                         android:text="Birthday"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_20sdp"
                         android:textColor="@color/lavender"
                         android:textStyle="bold|italic"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/clothingImage"/>
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:id="@+id/clothingImage"
                         android:src="@drawable/birthday"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:layout_centerHorizontal="true"/>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/_10sdp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/elecName"
                         android:text="Travelling"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_20sdp"
                         android:textColor="@color/lavender"
                         android:textStyle="bold|italic"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/elecImage"/>
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:id="@+id/elecImage"
                         android:src="@drawable/earth"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:layout_centerHorizontal="true"/>
 
                 </RelativeLayout>
@@ -134,82 +135,82 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="175dp"
             android:id="@+id/row2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_150sdp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/row1">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/_10sdp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/homeName"
                         android:text="Education"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_20sdp"
                         android:textColor="@color/lavender"
                         android:textStyle="bold|italic"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/homeImage"/>
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:id="@+id/homeImage"
                         android:src="@drawable/education"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:layout_centerHorizontal="true"/>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/_10sdp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/beautyName"
                         android:text="Family"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_20sdp"
                         android:textColor="@color/lavender"
                         android:textStyle="bold|italic"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/beautyImage"/>
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:id="@+id/beautyImage"
                         android:src="@drawable/family"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:layout_centerHorizontal="true"/>
 
                 </RelativeLayout>
@@ -217,82 +218,82 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="175dp"
             android:id="@+id/row3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_150sdp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/row2">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/_10sdp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/pharmName"
-                        android:text="Personal Notes"
-                        android:textSize="20sp"
+                        android:text="Personal"
+                        android:textSize="@dimen/_20sdp"
                         android:textColor="@color/lavender"
                         android:textStyle="bold|italic"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/pharmImage"/>
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:id="@+id/pharmImage"
                         android:src="@drawable/notes"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:layout_centerHorizontal="true"/>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/_10sdp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/grocName"
                         android:text="Shopping"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_20sdp"
                         android:textColor="@color/lavender"
                         android:textStyle="bold|italic"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/grocImage"/>
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:id="@+id/grocImage"
                         android:src="@drawable/shopping"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:layout_centerHorizontal="true"/>
 
                 </RelativeLayout>
