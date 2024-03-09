@@ -8,7 +8,12 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     CardView clothingCard;
-    private View birthdayBnt;
+    private View birthdayBtn;
+    private View shoppingBtn;
+    private View educationBtn;
+    private View familyBtn;
+    private View personalBtn;
+    private View travellingBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,11 +21,42 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         clothingCard = findViewById(R.id.clothingCard);
 
-        birthdayBnt = findViewById(R.id.birthdayBtn);
-        birthdayBnt.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AddNote.class);
+        birthdayBtn = findViewById(R.id.birthdayBtn);
+        birthdayBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Birthday.class);
             startActivity(intent);
         });
 
-    }
+        educationBtn = findViewById(R.id.educationBtn);
+        educationBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Education.class);
+            startActivity(intent);
+        });
+
+        shoppingBtn = findViewById(R.id.shoppingBtn);
+        shoppingBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Shopping.class);
+            startActivity(intent);
+        });
+
+        familyBtn = findViewById(R.id.familyBtn);
+        familyBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Family.class);
+            startActivity(intent);
+        });
+
+        personalBtn = findViewById(R.id.personalBtn);
+        personalBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Personal.class);
+            startActivity(intent);
+        });
+
+        travellingBtn = findViewById(R.id.travellingBtn);
+        travellingBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Travelling.class);
+            startActivity(intent);
+        });
+            }
 }
+
+

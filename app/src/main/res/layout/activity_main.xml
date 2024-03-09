@@ -8,15 +8,16 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/constraintLayout"
         android:layout_marginTop="@dimen/_20sdp">
 
         <TextView
+            android:id="@+id/amazonName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/amazonName"
             android:text="Galaxy"
             android:textSize="@dimen/_32sdp"
             android:textColor="@color/lavender"
@@ -28,9 +29,9 @@
             app:layout_constraintEnd_toStartOf="@+id/amazonImage"/>
 
         <TextView
+            android:id="@+id/amazonDesc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/amazonDesc"
             android:text="of memories"
             android:textSize="@dimen/_18sdp"
             android:layout_marginStart="@dimen/_18sdp"
@@ -40,9 +41,9 @@
             app:layout_constraintEnd_toStartOf="@+id/amazonImage"/>
 
         <ImageView
+            android:id="@+id/amazonImage"
             android:layout_width="@dimen/_160sdp"
             android:layout_height="@dimen/_160sdp"
-            android:id="@+id/amazonImage"
             android:src="@drawable/notes"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,9 +96,9 @@
                         android:src="@drawable/birthday"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_centerHorizontal="true"/>
-
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_4sdp"
@@ -108,13 +109,14 @@
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
+                    android:id="@+id/travellingBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:clickable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/elecName"
                         android:text="Travelling"
                         android:textSize="@dimen/_16sdp"
                         android:textColor="@color/lavender"
@@ -156,13 +158,14 @@
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
+                    android:id="@+id/educationBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:clickable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/homeName"
                         android:text="Education"
                         android:textSize="@dimen/_16sdp"
                         android:textColor="@color/lavender"
@@ -191,13 +194,14 @@
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
+                    android:id="@+id/familyBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:clickable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/beautyName"
                         android:text="Family"
                         android:textSize="@dimen/_16sdp"
                         android:textColor="@color/lavender"
@@ -239,13 +243,14 @@
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
+                    android:id="@+id/personalBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:clickable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/pharmName"
                         android:text="Personal"
                         android:textSize="@dimen/_16sdp"
                         android:textColor="@color/lavender"
@@ -274,13 +279,14 @@
                 app:cardCornerRadius="20dp">
 
                 <RelativeLayout
+                    android:id="@+id/shoppingBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:clickable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/grocName"
                         android:text="Shopping"
                         android:textSize="@dimen/_16sdp"
                         android:textColor="@color/lavender"

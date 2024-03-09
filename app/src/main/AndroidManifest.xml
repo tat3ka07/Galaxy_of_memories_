@@ -15,6 +15,24 @@
         android:theme="@style/Theme.GalaxyOfMemories"
         tools:targetApi="31">
         <activity
+            android:name=".Travelling"
+            android:exported="false" />
+        <activity
+            android:name=".Personal"
+            android:exported="false" />
+        <activity
+            android:name=".Education"
+            android:exported="false" />
+        <activity
+            android:name=".Family"
+            android:exported="false" />
+        <activity
+            android:name=".Shopping"
+            android:exported="false" />
+        <activity
+            android:name=".Birthday"
+            android:exported="false" />
+        <activity
             android:name=".AddNote"
             android:exported="false" />
         <activity
@@ -35,7 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
