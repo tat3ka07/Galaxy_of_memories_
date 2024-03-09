@@ -8,17 +8,19 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     CardView clothingCard;
+    private View birthdayBnt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         clothingCard = findViewById(R.id.clothingCard);
-        clothingCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ClothingActivity.class);
-                startActivity(intent);
-            }
+
+        birthdayBnt = findViewById(R.id.birthdayBtn);
+        birthdayBnt.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AddNote.class);
+            startActivity(intent);
         });
+
     }
 }

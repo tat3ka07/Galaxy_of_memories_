@@ -29,12 +29,12 @@
     <EditText
         android:id="@+id/usernameET"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_44sdp"
+        android:layout_height="@dimen/_35sdp"
         android:background="@drawable/round_back_dark_purple"
         android:hint="Username"
         android:maxLines="1"
         android:inputType="text"
-        android:textSize="@dimen/_13sdp"
+        android:textSize="@dimen/_12sdp"
         android:paddingStart="@dimen/_15sdp"
         android:paddingEnd="@dimen/_15sdp"
         android:layout_marginStart="@dimen/_15sdp"
@@ -43,7 +43,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_44sdp"
+        android:layout_height="@dimen/_35sdp"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_15sdp"
@@ -56,16 +56,16 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:hint="Password"
-            android:paddingStart="20dp"
+            android:paddingStart="@dimen/_15sdp"
             android:paddingEnd="20dp"
-            android:textSize="@dimen/_13sdp"
+            android:textSize="@dimen/_12sdp"
             android:inputType="textPassword"
             android:maxLines="1" />
 
         <ImageView
             android:id="@+id/passwordIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="38dp"
+            android:layout_height="35dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:padding="@dimen/_7sdp"
@@ -88,14 +88,14 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signInBtn"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_44sdp"
+        android:layout_height="@dimen/_35sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginStart="@dimen/_15sdp"
         android:text="Sign In"
-        android:textSize="@dimen/_13sdp"
+        android:textSize="@dimen/_12sdp"
         android:onClick="signIn"
         android:textAllCaps="false"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/round_back_primary"
         android:textColor="#FFFFFF" />
     
