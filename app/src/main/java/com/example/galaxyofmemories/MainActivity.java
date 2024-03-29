@@ -2,6 +2,8 @@ package com.example.galaxyofmemories;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private View familyBtn;
     private View personalBtn;
     private View travellingBtn;
+    private View addNote;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +61,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Travelling.class);
             startActivity(intent);
         });
-            }
+
+        addNote = findViewById(R.id.addNote);
+            addNote.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
+        });
+}
 }
 
 

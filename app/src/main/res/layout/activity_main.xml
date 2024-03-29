@@ -319,12 +319,14 @@
             app:layout_constraintTop_toBottomOf="@id/row3">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/addNote"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@color/primary"
                 android:text="+"
-                android:id="@+id/addButton"
-                android:layout_gravity="center"
-                />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_120sdp"/>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
