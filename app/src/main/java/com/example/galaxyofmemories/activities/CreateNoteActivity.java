@@ -1,10 +1,12 @@
-package com.example.galaxyofmemories;
+package com.example.galaxyofmemories.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.galaxyofmemories.R;
 
 public class CreateNoteActivity extends AppCompatActivity {
 
