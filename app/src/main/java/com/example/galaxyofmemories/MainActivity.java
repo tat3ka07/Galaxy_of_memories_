@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     CardView clothingCard;
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private View familyBtn;
     private View personalBtn;
     private View travellingBtn;
-    private View addNote;
+    private Button addNote;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -62,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        addNote = findViewById(R.id.addNote);
-            addNote.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        addNote = (Button) findViewById(R.id.addNote);
+        addNote.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
             startActivity(intent);
         });
 }
