@@ -15,24 +15,6 @@
         android:theme="@style/Theme.GalaxyOfMemories"
         tools:targetApi="31">
         <activity
-            android:name=".CreateNoteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".NoteEditorActivity"
-            android:exported="false" />
-        <activity
-            android:name=".add_note_menu"
-            android:exported="false" />
-        <activity
-            android:name=".Note"
-            android:exported="false" />
-        <activity
-            android:name=".NoteEditor"
-            android:exported="false" />
-        <activity
             android:name=".Travelling"
             android:exported="false" />
         <activity
@@ -75,6 +57,14 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".CreateNoteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".MainActivity2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>
