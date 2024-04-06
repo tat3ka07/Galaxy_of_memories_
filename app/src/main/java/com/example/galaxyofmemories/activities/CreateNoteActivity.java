@@ -1,9 +1,8 @@
 package com.example.galaxyofmemories.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
@@ -15,6 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.example.galaxyofmemories.Manifest;
 import com.example.galaxyofmemories.R;
 import com.example.galaxyofmemories.database.NotesDatabase;
 import com.example.galaxyofmemories.entities.Note;
@@ -30,6 +34,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private TextView textDateTime;
     private View viewSubtitleIndicator;
     private String selectedNoteColor;
+    private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +55,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         textDateTime = findViewById(R.id.textDateTime);
         viewSubtitleIndicator = findViewById(R.id.viewSubtitleIndicator);
 
-        textDateTime.setText(
-                new SimpleDateFormat("EEE, dd MMM yyyy HH:mm", Locale.getDefault())
-                        .format(new Date()));
+        textDateTime.setText(new SimpleDateFormat("EEE, dd MMM yyyy HH:mm", Locale.getDefault()).format(new Date()));
 
         ImageView imageSave = findViewById(R.id.imageSave);
         imageSave.setOnClickListener(new View.OnClickListener() {
@@ -67,43 +70,44 @@ public class CreateNoteActivity extends AppCompatActivity {
         initMiscellaneous();
         setSubtitleIndicatorColor();
     }
-        private void saveNote() {
-            if (inputNoteTitle.getText().toString().trim().isEmpty()) {
-                Toast.makeText(this, "Note title can't be empty!", Toast.LENGTH_SHORT).show();
-                return;
-            } else if (inputNoteSubtitle.getText().toString().trim().isEmpty()
-                    || inputNoteText.getText().toString().trim().isEmpty()) {
-                Toast.makeText(this, "Note can't be empty!", Toast.LENGTH_SHORT).show();
-                return;
+
+    private void saveNote() {
+        if (inputNoteTitle.getText().toString().trim().isEmpty()) {
+            Toast.makeText(this, "Note title can't be empty!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (inputNoteSubtitle.getText().toString().trim().isEmpty() || inputNoteText.getText().toString().trim().isEmpty()) {
+            Toast.makeText(this, "Note can't be empty!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        final Note note = new Note();
+
+        note.setTitle(inputNoteTitle.getText().toString());
+        note.setSubtitle(inputNoteSubtitle.getText().toString());
+        note.setNoteText(inputNoteText.getText().toString());
+        note.setDateTime(textDateTime.getText().toString());
+        note.setColor(selectedNoteColor);
+
+        @SuppressLint("StaticFieldLeak")
+        class SaveNoteTask extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                NotesDatabase.getDatabase(getApplicationContext()).noteDao().insertNote(note);
+                return null;
             }
 
-            final Note note = new Note();
-
-            note.setTitle(inputNoteTitle.getText().toString());
-            note.setSubtitle(inputNoteSubtitle.getText().toString());
-            note.setNoteText(inputNoteText.getText().toString());
-            note.setDateTime(textDateTime.getText().toString());
-            note.setColor(selectedNoteColor);
-
-            @SuppressLint("StaticFieldLeak")
-            class SaveNoteTask extends AsyncTask<Void, Void, Void> {
-
-                @Override
-                protected Void doInBackground(Void... voids) {
-                    NotesDatabase.getDatabase(getApplicationContext()).noteDao().insertNote(note);
-                    return null;
-                }
-
-                @Override
-                protected void onPostExecute(Void avoid) {
-                    super.onPostExecute(avoid);
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK, intent);
-                    finish();
-                }
+            @Override
+            protected void onPostExecute(Void avoid) {
+                super.onPostExecute(avoid);
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
             }
-            new SaveNoteTask().execute();
+        }
+        new SaveNoteTask().execute();
     }
+
     private void initMiscellaneous() {
         final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
         final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
@@ -188,7 +192,15 @@ public class CreateNoteActivity extends AppCompatActivity {
             }
         });
 
-
+    //    layoutMiscellaneous.findViewById(R.id.layoutAddImage).setOnClickListener(new View.OnClickListener() {
+      //      @Override
+    //        public void onClick(View v) {
+            //        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                   //         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    //ActivityCompat.requestPermissions(CreateNoteActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_STORAGE_PERMISSION);
+                //}
+            //}
+       // });
 
     }
 

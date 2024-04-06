@@ -38,17 +38,12 @@ public class MainActivity2 extends AppCompatActivity {
         imageAddNoteMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(
-                        new Intent(getApplicationContext(), CreateNoteActivity.class),
-                        REQUEST_CODE_ADD_NOTE
-                );
+                startActivityForResult(new Intent(getApplicationContext(), CreateNoteActivity.class), REQUEST_CODE_ADD_NOTE);
             }
         });
 
         notesRecyclerView = findViewById(R.id.notesRecyclerView);
-        notesRecyclerView.setLayoutManager(
-                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        );
+        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         noteList = new ArrayList<>();
         notesAdapter = new NotesAdapter(noteList);
@@ -64,15 +59,13 @@ public class MainActivity2 extends AppCompatActivity {
 
             @Override
             protected List<Note> doInBackground(Void... voids) {
-                return NotesDatabase
-                        .getDatabase(getApplicationContext())
-                        .noteDao().getAllNotes();
+                return NotesDatabase.getDatabase(getApplicationContext()).noteDao().getAllNotes();
             }
 
             @Override
             protected void onPostExecute(List<Note> notes) {
                 super.onPostExecute(notes);
-                if(noteList.size() == 0) {
+                if (noteList.size() == 0) {
                     noteList.addAll(notes);
                     notesAdapter.notifyDataSetChanged();
                 } else {
@@ -89,7 +82,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK) {
             getNotes();
         }
     }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class Login extends AppCompatActivity {
 
     private boolean passwordShowing = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,21 +29,21 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(passwordShowing) {
-                passwordShowing = false;
+                if (passwordShowing) {
+                    passwordShowing = false;
 
-                passwordET.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                passwordIcon.setImageResource(R.drawable.password_show);
-            } else {
-                passwordShowing = true;
+                    passwordET.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    passwordIcon.setImageResource(R.drawable.password_show);
+                } else {
+                    passwordShowing = true;
 
-                passwordET.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                passwordIcon.setImageResource(R.drawable.password_hide);
-            }
+                    passwordET.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    passwordIcon.setImageResource(R.drawable.password_hide);
+                }
 
                 passwordET.setSelection(passwordET.length());
 
-        }
+            }
         });
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
     public void signIn(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

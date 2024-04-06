@@ -22,7 +22,6 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
-
         final EditText email = findViewById(R.id.emailET);
         final EditText mobile = findViewById(R.id.mobileET);
 
@@ -38,7 +37,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(passwordShowing) {
+                if (passwordShowing) {
                     passwordShowing = false;
 
                     password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -58,7 +57,7 @@ public class Register extends AppCompatActivity {
         conPasswordIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(conPasswordShowing) {
+                if (conPasswordShowing) {
                     conPasswordShowing = false;
 
                     conPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -97,5 +96,5 @@ public class Register extends AppCompatActivity {
             }
         });
 
-}
+    }
 }

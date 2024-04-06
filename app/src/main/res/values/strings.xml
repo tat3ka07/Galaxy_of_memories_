@@ -12,4 +12,5 @@
     <string name="type_memory_here">Type memory here...</string>
     <string name="my_memories">My memories</string>
     <string name="search_memories">Search memories</string>
+    <string name="add_image">Add image</string>
 </resources>

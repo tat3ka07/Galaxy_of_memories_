@@ -148,7 +148,7 @@ public class OTPVerification extends AppCompatActivity {
                 selectedETPosition = 0;
                 showKeyboard(otpEt1);
             }
-                return true;
+            return true;
         } else {
             return super.onKeyUp(keyCode, event);
         }
