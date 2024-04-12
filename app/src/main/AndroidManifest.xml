@@ -36,9 +36,6 @@
             android:name=".Birthday"
             android:exported="false" />
         <activity
-            android:name=".AddNote"
-            android:exported="false" />
-        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.ModernDashboard1">
