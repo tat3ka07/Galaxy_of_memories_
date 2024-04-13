@@ -62,6 +62,7 @@ public class MainActivity2 extends AppCompatActivity {
                 return NotesDatabase.getDatabase(getApplicationContext()).noteDao().getAllNotes();
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             protected void onPostExecute(List<Note> notes) {
                 super.onPostExecute(notes);

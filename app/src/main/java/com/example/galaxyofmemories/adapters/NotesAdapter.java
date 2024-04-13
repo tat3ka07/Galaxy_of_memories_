@@ -6,6 +6,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -55,7 +56,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
         TextView textTitle, textSubtitle, textDateTime;
         LinearLayout layoutNote;
-        RoundedImageView imageNote;
+        ImageView imageNote;
 
         NoteViewHolder(@NonNull View itemView) {
             super(itemView);
