@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         addNote = (Button) findViewById(R.id.addNote);
         addNote.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
             startActivity(intent);
         });
     }
