@@ -218,16 +218,18 @@ public class CreateNoteActivity extends AppCompatActivity {
         final ImageView imageColor3 = layoutMiscellaneous.findViewById(R.id.imageColor3);
         final ImageView imageColor4 = layoutMiscellaneous.findViewById(R.id.imageColor4);
         final ImageView imageColor5 = layoutMiscellaneous.findViewById(R.id.imageColor5);
+        final ImageView imageColor6 = layoutMiscellaneous.findViewById(R.id.imageColor6);
 
         layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedNoteColor = "#333333";
+                selectedNoteColor = "#2196F3";
                 imageColor1.setImageResource(R.drawable.ic_done);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -235,12 +237,13 @@ public class CreateNoteActivity extends AppCompatActivity {
         layoutMiscellaneous.findViewById(R.id.viewColor2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedNoteColor = "#FDBE3B";
+                selectedNoteColor = "#F43636";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(R.drawable.ic_done);
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -248,12 +251,13 @@ public class CreateNoteActivity extends AppCompatActivity {
         layoutMiscellaneous.findViewById(R.id.viewColor3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedNoteColor = "#FF4842";
+                selectedNoteColor = "#E91E63";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(R.drawable.ic_done);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -267,6 +271,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(R.drawable.ic_done);
                 imageColor5.setImageResource(0);
+                imageColor6.setImageResource(0);
                 setSubtitleIndicatorColor();
             }
         });
@@ -274,12 +279,27 @@ public class CreateNoteActivity extends AppCompatActivity {
         layoutMiscellaneous.findViewById(R.id.viewColor5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedNoteColor = "#E91E63";
+                selectedNoteColor = "#FF9800";
                 imageColor1.setImageResource(0);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(0);
                 imageColor4.setImageResource(0);
                 imageColor5.setImageResource(R.drawable.ic_done);
+                imageColor6.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#9C27B0";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                imageColor6.setImageResource(R.drawable.ic_done);
                 setSubtitleIndicatorColor();
             }
         });
