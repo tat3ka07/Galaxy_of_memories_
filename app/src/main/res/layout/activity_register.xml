@@ -36,7 +36,7 @@
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/_35sdp"
             android:background="@drawable/round_back_dark_purple"
             android:hint="Full name"
             android:maxLines="1"
@@ -51,7 +51,7 @@
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/_35sdp"
             android:background="@drawable/round_back_dark_purple"
             android:hint="Email"
             android:maxLines="1"
@@ -74,7 +74,7 @@
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@android:color/transparent"
                 android:hint="Password"
                 android:paddingStart="@dimen/_15sdp"
@@ -95,7 +95,7 @@
             <EditText
                 android:id="@+id/confirm_password"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@android:color/transparent"
                 android:hint="Confirm password"
                 android:paddingStart="@dimen/_15sdp"
@@ -108,7 +108,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signupBtn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_30sdp"
