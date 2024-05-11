@@ -13,6 +13,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -36,6 +37,8 @@ import com.example.galaxyofmemories.database.NotesDatabase;
 import com.example.galaxyofmemories.entities.Note;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -77,6 +80,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         viewSubtitleIndicator = findViewById(R.id.viewSubtitleIndicator);
         imageNote = findViewById(R.id.imageNote);
         textWebURL = findViewById(R.id.textWebURL);
+        layoutWebURL = findViewById(R.id.layoutWebURL);
 
         textDateTime.setText(new SimpleDateFormat("EEE, dd MMM yyyy HH:mm", Locale.getDefault()).format(new Date()));
 
@@ -123,7 +127,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                     imageNote.setImageBitmap(BitmapFactory.decodeFile(selectedImagePath));
                     imageNote.setVisibility(View.VISIBLE);
                     findViewById(R.id.imageRemoveImage).setVisibility(View.VISIBLE);
-                }else if(type.equals("URL")){
+                } else if (type.equals("URL")) {
                     textWebURL.setText(getIntent().getStringExtra("URL"));
                     layoutWebURL.setVisibility(View.VISIBLE);
                 }
@@ -178,7 +182,6 @@ public class CreateNoteActivity extends AppCompatActivity {
         if (alreadyAvailableNote != null) {
             note.setId(alreadyAvailableNote.getId());
         }
-
 
         @SuppressLint("StaticFieldLeak")
         class SaveNoteTask extends AsyncTask<Void, Void, Void> {
@@ -303,21 +306,25 @@ public class CreateNoteActivity extends AppCompatActivity {
                 setSubtitleIndicatorColor();
             }
         });
-
-        if(alreadyAvailableNote.getColor() != null && alreadyAvailableNote.getColor().trim().isEmpty()) {
-            switch(alreadyAvailableNote.getColor()) {
-                case "#FDBE3B":
-                    layoutMiscellaneous.findViewById(R.id.viewColor2).performClick();
-                    break;
-                case "FF4842":
-                    layoutMiscellaneous.findViewById(R.id.viewColor3).performClick();
-                    break;
-                case "#009688":
-                    layoutMiscellaneous.findViewById(R.id.viewColor4).performClick();
-                    break;
-                case "#E91E63":
-                    layoutMiscellaneous.findViewById(R.id.viewColor5).performClick();
-                    break;
+        if (alreadyAvailableNote != null) {
+            if (alreadyAvailableNote.getColor() != null && !alreadyAvailableNote.getColor().trim().isEmpty()) {
+                switch (alreadyAvailableNote.getColor()) {
+                    case "#FDBE3B":
+                        layoutMiscellaneous.findViewById(R.id.viewColor2).performClick();
+                        break;
+                    case "#FF4842":
+                        layoutMiscellaneous.findViewById(R.id.viewColor3).performClick();
+                        break;
+                    case "#009688":
+                        layoutMiscellaneous.findViewById(R.id.viewColor4).performClick();
+                        break;
+                    case "#E91E63":
+                        layoutMiscellaneous.findViewById(R.id.viewColor5).performClick();
+                        break;
+                    case "#9C27B0":
+                        layoutMiscellaneous.findViewById(R.id.viewColor6).performClick();
+                        break;
+                }
             }
         }
 
@@ -357,7 +364,6 @@ public class CreateNoteActivity extends AppCompatActivity {
                 }
             });
         }
-
     }
 
     private void showDeleteNoteDialog() {
@@ -382,14 +388,15 @@ public class CreateNoteActivity extends AppCompatActivity {
                         @Override
                         protected Void doInBackground(Void... voids) {
                             NotesDatabase.getDatabase(getApplicationContext()).noteDao()
-                                    .deletNote(alreadyAvailableNote);
+                                    .deleteNote(alreadyAvailableNote);
                             return null;
                         }
+
                         @Override
                         protected void onPostExecute(Void avoid) {
                             super.onPostExecute(avoid);
                             Intent intent = new Intent();
-                            intent.putExtra("jisNoteDeleted", true);
+                            intent.putExtra("isNoteDeleted", true);
                             setResult(RESULT_OK, intent);
                             finish();
                         }
@@ -405,12 +412,10 @@ public class CreateNoteActivity extends AppCompatActivity {
                     dialogDeleteNote.dismiss();
                 }
             });
-            }
-
-        dialogDeleteNote.show();
-
         }
 
+        dialogDeleteNote.show();
+    }
 
     private void setSubtitleIndicatorColor() {
         GradientDrawable gradientDrawable = (GradientDrawable) viewSubtitleIndicator.getBackground();
@@ -447,11 +452,19 @@ public class CreateNoteActivity extends AppCompatActivity {
                     try {
                         InputStream inputStream = getContentResolver().openInputStream(selectedImageUri);
                         Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                        // Resize the bitmap
+                        int targetWidth = 250;
+                        int targetHeight = 80;
+                        bitmap = Bitmap.createScaledBitmap(bitmap, targetWidth, targetHeight, true);
+
+                        // Set the resized bitmap to imageNote
                         imageNote.setImageBitmap(bitmap);
                         imageNote.setVisibility(View.VISIBLE);
                         findViewById(R.id.imageRemoveImage).setVisibility(View.VISIBLE);
 
-                        selectedImagePath = getPathFromUri(selectedImageUri);
+                        selectedImagePath = saveImageToStorage(bitmap); // Save the resized image to storage
+
                     } catch (Exception exception) {
                         Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -459,6 +472,49 @@ public class CreateNoteActivity extends AppCompatActivity {
             }
         }
     }
+
+
+    private Bitmap resizeBitmap(Bitmap bitmap, int maxSize) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        float bitmapRatio = (float) width / (float) height;
+
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+
+        return Bitmap.createScaledBitmap(bitmap, width, height, true);
+    }
+
+    private String saveImageToStorage(Bitmap bitmap) {
+        // Get the directory to save images
+        File directory = new File(Environment.getExternalStorageDirectory() + File.separator + "YourDirectoryName");
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // Create a file to save the resized image
+        File file = new File(directory, "imageName.jpg");
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(file);
+
+            // Compress the resized bitmap and save it to the file
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream); // Adjust quality (80) as needed
+
+            outputStream.flush();
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return file.getAbsolutePath();
+    }
+
 
     private String getPathFromUri(Uri contentUri) {
         String filePath;
@@ -486,7 +542,7 @@ public class CreateNoteActivity extends AppCompatActivity {
             builder.setView(view);
 
             dialogAddURL = builder.create();
-            if (dialogAddURL.getWindow() != null){
+            if (dialogAddURL.getWindow() != null) {
                 dialogAddURL.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             }
 
@@ -501,11 +557,8 @@ public class CreateNoteActivity extends AppCompatActivity {
                     } else if (!Patterns.WEB_URL.matcher(inputUrl.getText().toString()).matches()) {
                         Toast.makeText(CreateNoteActivity.this, "Enter valid URL", Toast.LENGTH_SHORT).show();
                     } else {
-                        //մի բան կարոդա սխալ տա
-                        layoutWebURL.setTextDirection(Integer.parseInt(inputUrl.getText().toString()));
-
+                        textWebURL.setText(inputUrl.getText().toString());
                         layoutWebURL.setVisibility(View.VISIBLE);
-
                         dialogAddURL.dismiss();
                     }
                 }
@@ -519,5 +572,4 @@ public class CreateNoteActivity extends AppCompatActivity {
         }
         dialogAddURL.show();
     }
-
 }

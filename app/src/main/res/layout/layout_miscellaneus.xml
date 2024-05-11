@@ -49,6 +49,16 @@
                 android:src="@drawable/ic_done"
                 app:tint="@color/white" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Education"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_6sdp"/>
+
         </FrameLayout>
 
         <FrameLayout
@@ -69,6 +79,16 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/_10sdp"
                 app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Birthday"
+                android:textAlignment="center"
+                android:textSize="@dimen/_6sdp"
+                android:textColor="@color/white" />
 
         </FrameLayout>
 
@@ -91,6 +111,16 @@
                 android:padding="@dimen/_10sdp"
                 app:tint="@color/white" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Shopping"
+                android:textSize="@dimen/_6sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
         </FrameLayout>
 
         <FrameLayout
@@ -112,6 +142,16 @@
                 android:padding="@dimen/_10sdp"
                 app:tint="@color/white" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Travelling"
+                android:textAlignment="center"
+                android:textSize="@dimen/_6sdp"
+                android:textColor="@color/white" />
+
         </FrameLayout>
 
         <FrameLayout
@@ -132,6 +172,16 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/_10sdp"
                 app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Family"
+                android:textSize="@dimen/_6sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
         </FrameLayout>
 
@@ -156,6 +206,16 @@
                 android:padding="@dimen/_10sdp"
                 app:tint="@color/white" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_37sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Personal"
+                android:textSize="@dimen/_6sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
         </FrameLayout>
 
         <TextView
@@ -173,7 +233,7 @@
         android:id="@+id/layoutAddImage"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_35sdp"
-        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         tools:ignore="UseCompoundDrawables">
@@ -203,7 +263,6 @@
         android:layout_height="@dimen/_35sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
