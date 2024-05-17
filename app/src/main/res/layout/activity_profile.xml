@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8692f7">
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textSize="@dimen/_40sdp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_150sdp"/>
+
+    <!-- Log Out Button -->
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:textColor="#3C4CA6"
+        android:textSize="20sp"
+        android:fontFamily="@font/ubuntu_regular"
+        android:background="@android:color/white"
+        android:layout_below="@id/name_textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_40sdp"/>
+
+</RelativeLayout>
