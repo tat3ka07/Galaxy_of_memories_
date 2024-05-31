@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/family3"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/birthdayMemoriesText"
@@ -17,7 +18,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/_20sdp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesRecyclerView"

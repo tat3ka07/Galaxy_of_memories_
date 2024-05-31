@@ -17,7 +17,8 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/_20sdp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:orientation="vertical"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesRecyclerView"
